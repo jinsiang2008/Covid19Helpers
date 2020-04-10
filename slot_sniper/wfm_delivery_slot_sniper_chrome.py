@@ -17,7 +17,7 @@ def getWFSlot(productUrl):
    driver.get(productUrl)           
    html = driver.page_source
    soup = BeautifulSoup(html)
-   time.sleep(60)
+   time.sleep(80)
    no_open_slots = True
 
    while no_open_slots:
@@ -55,8 +55,8 @@ def getWFSlot(productUrl):
          if no_slot_pattern == soup.find('h4', class_ ='a-alert-heading').text:
             print("NO SLOTS!")
       except AttributeError: 
-            print('SLOTS OPEN 3!')
-            os.system('say "Slots for delivery opened!"')
+            print('Not Available at this moment')
+            os.system('say "Not available at the moment, please try later"')
             no_open_slots = False
 
 
