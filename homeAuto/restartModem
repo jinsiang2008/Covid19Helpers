@@ -1,6 +1,10 @@
 #! /bin/bash
-echo "===========Home Modem restart script =============="
+# My modem at home is NETGEAR genie CM500-100NAS
+# The Fimware Version is V1.01.04
+
+echo "=========== Home Modem restart script =============="
 
 id=$(wget -O- --http-user admin --http-password password http://192.168.100.1/RouterStatus.htm | perl -lne '/id=([0-9]+)/ && print $1') 
-
 wget --http-user admin --http-password password --post-data 'buttonSelect=2' http://192.168.100.1/goform/RouterStatus?id="$id"
+
+echo "=========== Home Modem restarted =============="
